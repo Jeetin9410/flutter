@@ -43,7 +43,7 @@ class _MyAppState extends State<MyApp>{
             ),
             Padding(
               padding: EdgeInsets.all(30.0),
-              child: Text("Your text is1 $name"),
+              child: Text("Your text is $name"),
             ),
           ],
         ),
