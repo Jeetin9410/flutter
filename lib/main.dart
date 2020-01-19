@@ -41,7 +41,7 @@ class MyApp extends StatelessWidget{
         appBar: AppBar(title: Text("Expense Manager",),),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             Card(
               child: Text("Here Chart will be placed"),
