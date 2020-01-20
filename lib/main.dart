@@ -17,17 +17,19 @@ class MyApp extends StatelessWidget{
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(title: Text("Expense Manager",),),
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            Card(
-              child: Text("Here Chart will be placed"),
-              elevation: 10.0,
-              margin: EdgeInsets.all(10.0),
-            ),
-           UserTransactions(),
-          ],
+        body: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              Card(
+                child: Text("Here Chart will be placed"),
+                elevation: 10.0,
+                margin: EdgeInsets.all(10.0),
+              ),
+             UserTransactions(),
+            ],
+          ),
         ),
       ),
     );
