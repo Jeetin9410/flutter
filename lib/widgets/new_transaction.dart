@@ -1,10 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-class NewTransaction extends StatelessWidget {
+class NewTransaction extends StatefulWidget { // After Bottom Sheet implementation , the data was getting lost untill NewTransaction is changed to StatefulWidget...
   final Function  addTx;
-  final titleController = TextEditingController();
-  final amountController = TextEditingController();
+
   NewTransaction(this.addTx);
+
+  @override
+  _NewTransactionState createState() => _NewTransactionState();
+}
+
+class _NewTransactionState extends State<NewTransaction> {
+  final titleController = TextEditingController();
+
+  final amountController = TextEditingController();
+
    @override
    Widget build(BuildContext context) {
      return Card( elevation: 5,
@@ -12,8 +21,8 @@ class NewTransaction extends StatelessWidget {
            padding : EdgeInsets.all(10),
            child: Column( crossAxisAlignment: CrossAxisAlignment.end,
              children: <Widget>[
-               TextField(decoration: InputDecoration(labelText: "Title"),controller: titleController, ),
-               TextField(decoration: InputDecoration(labelText: "Amount"),controller: amountController, ),
+               TextField(decoration: InputDecoration(labelText: "Title"),controller: titleController,keyboardType: TextInputType.text , ),
+               TextField(decoration: InputDecoration(labelText: "Amount"),controller: amountController, keyboardType: TextInputType.number),
                FlatButton(onPressed: (){
                  if((titleController.text).isEmpty||(amountController.text).isEmpty){
                    return Fluttertoast.showToast(
@@ -26,7 +35,7 @@ class NewTransaction extends StatelessWidget {
                        fontSize: 16.0
                    );
                  }else{
-                 addTx(titleController.text,double.parse(amountController.text));}
+                 widget.addTx(titleController.text,double.parse(amountController.text));}
                },
                child:Text("Add Transaction", style: TextStyle(color: Colors.lightBlue,fontWeight: FontWeight.bold, fontSize: 15.0 ),))
              ],
@@ -34,4 +43,4 @@ class NewTransaction extends StatelessWidget {
          )
      );
    }
- }
+}
