@@ -40,8 +40,7 @@ import '../models/transaction.dart';
    @override
    Widget build(BuildContext context) {
      return Column(children: <Widget>[
-       NewTransaction(_addNewTransaction),
-       TransactionList(transactions)
+
      ],);
    }
  }
