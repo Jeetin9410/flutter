@@ -9,7 +9,7 @@ import 'package:intl/intl.dart';
    @override
    Widget build(BuildContext context) {
      return Container(
-       height: 300,
+       height: 500,
        child:
          ListView(
            children: transactions.map((tx){
@@ -27,22 +27,14 @@ import 'package:intl/intl.dart';
                      ),
                      padding: EdgeInsets.all(10),
                      child : Text("\$"+tx.amount.toStringAsFixed(2),
-                       style: TextStyle(
-                         fontWeight: FontWeight.bold,
-                         fontSize: 15,
-                         color: Colors.purple,
-                       ),
+                       style: Theme.of(context).textTheme.title,
                      ),
                    ),
                    Column(
                      crossAxisAlignment: CrossAxisAlignment.start,
                      children: <Widget>[
-                       Text(tx.title, style: TextStyle( fontSize: 15,fontWeight: FontWeight.bold) ,),
-                       Text( DateFormat('yyyy-mm-dd').format(tx.date),
-                         style: TextStyle(
-                             color: Colors.grey
-                         ),
-                       ),
+                       Text(tx.title,style: Theme.of(context).textTheme.title, ),
+                       Text( DateFormat.yMMMd().format(tx.date), ),
                      ],
                    )
                  ],),

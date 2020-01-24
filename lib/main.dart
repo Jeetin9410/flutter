@@ -3,8 +3,6 @@ import 'package:flutter_expense_manager/models/transaction.dart';
 import 'package:flutter_expense_manager/widgets/new_transaction.dart';
 import 'package:flutter_expense_manager/widgets/transaction_list.dart';
 
-
-
 void main(){
   runApp(MyApp());
 }
@@ -14,7 +12,31 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter App',
+      theme: ThemeData(
+        primarySwatch: Colors.purple,
+        accentColor: Colors.amberAccent,
+        fontFamily: "Overpass",
+        textTheme: ThemeData.light().textTheme.copyWith(
+          title: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontFamily: "Overpass",
+            fontSize: 18,
+          )
+        ),
+        appBarTheme: AppBarTheme(
+          textTheme: ThemeData.light().textTheme.copyWith(
+            title: TextStyle(
+              fontFamily: "SourceSansPro",
+              fontSize: 20,
+              fontWeight: FontWeight.w500,
+
+            )
+          )
+        )
+
+      ),
       home: MyHomePage(),
+
     );
   }
 }
@@ -53,6 +75,7 @@ class _MyHomePageState extends State<MyHomePage> {
     setState(() {
       transactions.add(newTx);
     });
+    Navigator.of(context).pop();
   }
 
   void _startAddNewTransaction(BuildContext ctx){
@@ -69,8 +92,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return MaterialApp(
-      home: Scaffold(
+    return Scaffold(
         appBar: AppBar(title: Text("Expense Manager",),
         actions: <Widget>[
           IconButton(icon: Icon(Icons.add), onPressed: () => _startAddNewTransaction(context))
@@ -93,7 +115,6 @@ class _MyHomePageState extends State<MyHomePage> {
           child : Icon(Icons.add),
           onPressed: () => _startAddNewTransaction(context),
         ),
-      ),
-    );
+      );
   }
 }
