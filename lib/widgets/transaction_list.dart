@@ -46,7 +46,7 @@ import 'package:intl/intl.dart';
                  Column(
                    crossAxisAlignment: CrossAxisAlignment.start,
                    children: <Widget>[
-                     Text(transactions[index].title,style: Theme.of(context).textTheme.title, ),
+                    FittedBox(child: Text(transactions[index].title,style: Theme.of(context).textTheme.title, ),) ,
                      Text( DateFormat.yMMMd().format(transactions[index].date), ),
                    ],
                  ),

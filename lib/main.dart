@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_expense_manager/models/transaction.dart';
 import 'package:flutter_expense_manager/widgets/new_transaction.dart';
 import 'package:flutter_expense_manager/widgets/transaction_list.dart';
@@ -6,6 +7,10 @@ import 'package:flutter_expense_manager/widgets/chart.dart';
 
 
 void main(){
+  SystemChrome.setPreferredOrientations([  // now app will always be in Portrait mode always
+DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitUp
+  ]);
   runApp(MyApp());
 }
 
