@@ -14,57 +14,119 @@ class MealsDetails extends StatelessWidget {
 
     return Scaffold(
       appBar: appBar,
-      body: Column(
-       children: <Widget>[
-         Container(
-           height: 300,
-           width: double.infinity,
-           child: Image.network(selectedMeal.imageUrl, fit: BoxFit.cover,),
-         ),
-         Card(
-           shape: RoundedRectangleBorder(
-             borderRadius: BorderRadius.circular(15),
+      body: SingleChildScrollView(
+        child: Column(
 
+         children: <Widget>[
+           Container(
+             height: 300,
+             width: double.infinity,
+             child: Image.network(selectedMeal.imageUrl, fit: BoxFit.cover,),
            ),
-           child: Container(
-             decoration: BoxDecoration(
-                 color: Colors.white,
-                 border: Border.all(color: Colors.black54),
-                 borderRadius: BorderRadius.circular(15)
-             ),
-             child: Column(
-               children: <Widget>[
-                 Container(
-                   child: Padding(
-                     padding: const EdgeInsets.all(10.0),
-                     child: Text("Ingredients",style: TextStyle(fontStyle: FontStyle.normal,fontWeight: FontWeight.bold,fontFamily: "Overpass",fontSize: 18),),
-                   ),
-                 ),
-                 Container(
+           SizedBox(
+             height: 10,
+           ),
+           Card(
+             shape: RoundedRectangleBorder(
+               borderRadius: BorderRadius.circular(15),
 
-                   height: (MediaQuery.of(context).size.height - appBar.preferredSize.height
-                       - MediaQuery.of(context).padding.top)*0.3,
-                   width: (MediaQuery.of(context).size.width),
-                   child:
-                   Scrollbar(
+             ),
+             child: Container(
+               width: (MediaQuery.of(context).size.width)-35,
+               decoration: BoxDecoration(
+                   color: Colors.white,
+                   border: Border.all(color: Colors.black54),
+                   borderRadius: BorderRadius.circular(15)
+               ),
+               child: Column(
+                 children: <Widget>[
+                   Container(
                      child: Padding(
                        padding: const EdgeInsets.all(10.0),
-                       child: ListView.builder(
-                         itemBuilder: (ctx,index) => Card(
-                           child: Padding(
-                             padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
-                             child: Text(selectedMeal.ingredients[index],style: TextStyle(fontStyle: FontStyle.normal,fontFamily: "Overpass",fontSize: 15),),
-                           ),
-                         ),
-                         itemCount: selectedMeal.ingredients.length,),
+                       child: Text("Ingredients",style: TextStyle(fontStyle: FontStyle.normal,fontWeight: FontWeight.bold,fontFamily: "Overpass",fontSize: 18),),
                      ),
                    ),
-                 ),
-               ],
+                   Divider(color: Colors.black54,),
+                   Container(
+
+                     height: (MediaQuery.of(context).size.height - appBar.preferredSize.height
+                         - MediaQuery.of(context).padding.top)*0.3,
+                     width: (MediaQuery.of(context).size.width),
+                     child:
+                     Scrollbar(
+                       child: Padding(
+                         padding: const EdgeInsets.all(10.0),
+                         child: ListView.builder(
+                           itemBuilder: (ctx,index) => Card(
+                             child: Padding(
+                               padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+                               child: Text(selectedMeal.ingredients[index],style: TextStyle(fontStyle: FontStyle.normal,fontFamily: "Overpass",fontSize: 15),),
+                             ),
+                           ),
+                           itemCount: selectedMeal.ingredients.length,),
+                       ),
+                     ),
+                   ),
+                 ],
+               ),
              ),
            ),
-         ),
-       ],
+           SizedBox(
+             height: 10,
+           ),
+           Card(
+             shape: RoundedRectangleBorder(
+               borderRadius: BorderRadius.circular(15),
+
+             ),
+             child: Container(
+               width: (MediaQuery.of(context).size.width)-35,
+               decoration: BoxDecoration(
+                   color: Colors.white,
+                   border: Border.all(color: Colors.black54),
+                   borderRadius: BorderRadius.circular(15)
+               ),
+               child: Column(
+                 children: <Widget>[
+                   Container(
+                     child: Padding(
+                       padding: const EdgeInsets.all(10.0),
+                       child: Text("Steps",style: TextStyle(fontStyle: FontStyle.normal,fontWeight: FontWeight.bold,fontFamily: "Overpass",fontSize: 18),),
+                     ),
+                   ),
+                   Divider( color: Colors.black54,
+                   ),
+                   Container(
+
+                     height: (MediaQuery.of(context).size.height - appBar.preferredSize.height
+                         - MediaQuery.of(context).padding.top)*0.3,
+                     width: (MediaQuery.of(context).size.width),
+                     child:
+                     Scrollbar(
+                       child: Padding(
+                         padding: const EdgeInsets.all(10.0),
+                         child: ListView.builder(
+                           itemBuilder: (ctx,index) => Card(
+                             child: ListTile(
+                                  leading: CircleAvatar(
+                                    child: Text('# ${(index+1)}'),
+                                  ),
+                               title: Text(selectedMeal.steps[index]),
+                             ),
+                           ),
+                           itemCount: selectedMeal.steps.length,),
+                       ),
+                     ),
+                   ),
+                 ],
+               ),
+             ),
+           ),
+           SizedBox(
+             height: 10,
+           ),
+         ],
+        ),
       ),
     );
   }
