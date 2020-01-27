@@ -29,7 +29,7 @@ class MealsDetails extends StatelessWidget {
            child: Container(
              decoration: BoxDecoration(
                  color: Colors.white,
-                 border: Border.all(color: Colors.grey),
+                 border: Border.all(color: Colors.black54),
                  borderRadius: BorderRadius.circular(15)
              ),
              child: Column(
@@ -46,16 +46,18 @@ class MealsDetails extends StatelessWidget {
                        - MediaQuery.of(context).padding.top)*0.3,
                    width: (MediaQuery.of(context).size.width),
                    child:
-                   Padding(
-                     padding: const EdgeInsets.all(10.0),
-                     child: ListView.builder(
-                       itemBuilder: (ctx,index) => Card(
-                         child: Padding(
-                           padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
-                           child: Text(selectedMeal.ingredients[index]),
+                   Scrollbar(
+                     child: Padding(
+                       padding: const EdgeInsets.all(10.0),
+                       child: ListView.builder(
+                         itemBuilder: (ctx,index) => Card(
+                           child: Padding(
+                             padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+                             child: Text(selectedMeal.ingredients[index],style: TextStyle(fontStyle: FontStyle.normal,fontFamily: "Overpass",fontSize: 15),),
+                           ),
                          ),
-                       ),
-                       itemCount: selectedMeal.ingredients.length,),
+                         itemCount: selectedMeal.ingredients.length,),
+                     ),
                    ),
                  ),
                ],
