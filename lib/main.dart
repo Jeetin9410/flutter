@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_first_project/screens/categories_screen.dart';
-import 'package:flutter_first_project/screens/tabs_screen.dart';
+import 'package:flutter_first_project/screens/bottom_tabs_screen.dart';
 void main(){
   SystemChrome.setPreferredOrientations([  // now app will always be in Portrait mode always
     DeviceOrientation.portraitUp,
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       title: 'DeliMeals',
       theme: ThemeData(
           primarySwatch: Colors.red,
-          accentColor: Colors.orange,
+          accentColor: Colors.white,
           fontFamily: "Overpass",
           textTheme: ThemeData.light().textTheme.copyWith(
             title: TextStyle(
@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
           )
 
       ),
-      home: TabsScreen(),
+      home: BottomTabsScreen(),
 
     );
   }
