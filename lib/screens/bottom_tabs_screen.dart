@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_first_project/screens/categories_screen.dart';
 import 'package:flutter_first_project/screens/favorites_screen.dart';
+import 'package:flutter_first_project/widgets/main_drawer.dart';
 class BottomTabsScreen extends StatefulWidget {
   @override
   _BottomTabsScreenState createState() => _BottomTabsScreenState();
@@ -21,6 +22,7 @@ setState(() {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar( title: Text("Meals"),),
+      drawer: Drawer(child: MainDrawer(),),
       body: _pages[_selectedPageIndex],
       bottomNavigationBar: BottomNavigationBar(
         onTap: _selectedPage,
