@@ -1,58 +1,37 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_first_project/screens/products_overview_screen.dart';
 void main(){
-  //runApp(MyApp());
+  runApp(MyApp());
 }
-
-class MyApp extends StatefulWidget{
-
-@override
-  State<StatefulWidget> createState() {
-    
-    return MyAppState();
-  }
-
-}
-
-class MyAppState extends State<MyApp>{
-
-
-int answerIndex = 0;
-var questions = ['What is your name?','What are you doing?','how are you?'];
-void answerQuestion(){
-  setState(() {
-    answerIndex++;
-  });
-  print(answerIndex);
-}
+class MyApp extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
-    
-    return MaterialApp(home: Scaffold(
-      appBar: AppBar(
-        title: Text("Campus 365"), 
+    // TODO: implement build
+    return MaterialApp(
+      title: "MyShop",
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+        fontFamily: 'Lato'
       ),
-      body: Column(
-        children: <Widget>[
-          Text(questions.elementAt(answerIndex)),
-          RaisedButton(
-            child: Text("Option1"),
-            onPressed: answerQuestion,
-          ),
-           RaisedButton(
-            child: Text("Option2"),
-            onPressed: answerQuestion,
-          ),
-           RaisedButton(
-            child: Text("Option3"),
-            onPressed: answerQuestion,
-          ),
-           RaisedButton(
-            child: Text("Option4"),
-            onPressed: answerQuestion,
-          )
-        ],
-      ),
-    )
+      home: ProductsOverviewScreen(),
     );
+
   }
+  
+}
+
+class MyHomePage extends StatelessWidget{
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+   return Scaffold(
+     appBar: AppBar(
+       title: Text("MyShop"),
+     ),
+     body: Center(
+       child: Text("Hi"),
+     ),
+   );
+  }
+
 }
